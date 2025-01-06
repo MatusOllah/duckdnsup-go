@@ -11,12 +11,20 @@ import (
 	"github.com/spf13/pflag"
 )
 
+const ver = "1.0.0"
+
 func main() {
 	domains := pflag.StringSliceP("domain", "d", []string{}, "The domain(s) to be updated")
 	ip := pflag.StringP("ip", "i", "", "The IP address, auto-detect when empty")
 	token := pflag.StringP("token", "t", "", "The token")
 	verbose := pflag.BoolP("verbose", "v", false, "Print verbose information")
+	version := pflag.Bool("version", false, "Show version")
 	pflag.Parse()
+
+	if *version {
+		fmt.Printf("duckdnsup-go version %s\n", ver)
+		os.Exit(0)
+	}
 
 	if len(*domains) == 0 {
 		fmt.Fprintln(os.Stderr, "Error: domains not specified")
