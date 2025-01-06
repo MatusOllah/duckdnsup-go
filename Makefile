@@ -3,7 +3,7 @@ GO = go
 GOOS ?= $(shell $(GO) env GOOS)
 GOARCH ?= $(shell $(GO) env GOARCH)
 
-GO_FLAGS = -gcflags="-dwarf=false" -ldflags="-s -w"
+GO_FLAGS = -v -gcflags="-dwarf=false" -ldflags="-s -w"
 
 BINARY = ./bin/$(GOOS)-$(GOARCH)
 
