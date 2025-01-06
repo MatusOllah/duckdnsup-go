@@ -1,7 +1,7 @@
 GO = go
 
-GOOS = $(shell $(GO) env GOOS)
-GOARCH = $(shell $(GO) env GOARCH)
+GOOS ?= $(shell $(GO) env GOOS)
+GOARCH ?= $(shell $(GO) env GOARCH)
 
 GO_FLAGS = -gcflags="-dwarf=false" -ldflags="-s -w"
 
